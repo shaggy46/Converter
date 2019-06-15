@@ -1,6 +1,5 @@
 package firstApp;
 
-import java.util.Scanner;
 
 public enum ConvertMethods {
     KG_TO_LB("1"),
@@ -12,7 +11,25 @@ public enum ConvertMethods {
 
     private String ConvertNumber;
 
-    ConvertMethods(String s) {
-        s = ConvertNumber;
+    ConvertMethods(String ConvertNumber) {
+        this.ConvertNumber = ConvertNumber;
+    }
+
+    public String getConvertNumber() {
+        return this.ConvertNumber;
+    }
+    public static ConvertMethods chooseConvertMethods(String ConvertNumber){
+        for(ConvertMethods i : ConvertMethods.values()){
+            if(i.ConvertNumber.equalsIgnoreCase(ConvertNumber)){
+                return i;
+            }
+        }
+        return null;
+    }
+    public static ConvertMethods showNames(){
+        for(ConvertMethods j : ConvertMethods.values()){
+            System.out.println(j.name() +" " + j.ConvertNumber);
+
+        }return null;
     }
 }

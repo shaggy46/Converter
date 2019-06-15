@@ -11,6 +11,7 @@ public class App
             ConvertMethods convertType = ChooseConversionMethod(); //tworze enum convertType
             Converter converter = converters.get(convertType); //tworze interfejs converter
             long value = 0;                                     //mapa o nazwie converters
+        System.out.println("Podaj wartość do konwersji");
             Scanner scanner1 = new Scanner(System.in);
             value = scanner1.nextLong();
             long result = converter.convert(value);
@@ -21,8 +22,9 @@ public class App
     public static ConvertMethods ChooseConversionMethod() {
         String choice;
         System.out.println("Wybierz numer konwersji");
+        ConvertMethods.showNames();
         Scanner scanner = new Scanner(System.in);
         choice = scanner.nextLine();
-        return converters.get(choice);
+        return ConvertMethods.chooseConvertMethods(choice);
     }
 }
